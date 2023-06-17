@@ -1,0 +1,75 @@
+{% extends 'App/base.html'%}
+
+{% block content %}
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Instagram</title>
+    <link rel="shortcut icon" href="{% static '/App/images/Instagram-Logo.wine.png' %}" type="image/x-icon">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>  
+  </head>
+  <body style="background-image:linear-gradient(rgb(191, 107, 107),rgb(150, 150, 81),rgb(248, 248, 251));">
+    {% if message %} 
+
+    <h1>{{message}}</h1>
+
+    {% endif %}
+    <center>
+    <form method="POST"  style="background-color:rgb(254, 252, 252);margin:40px;padding:40px;background-image:linear-gradient(rgb(6, 107, 107),rgb(150, 150, 81),rgb(6, 6, 42));width:500px;border-radius:20px;" >
+      {% csrf_token %}
+      <!-- Email input -->
+
+      <div aria-disabled="false" role="button" tabindex="0" style="cursor: pointer;"><i data-visualcompletion="css-img" aria-label="Instagram" class="" role="img" style="background-image: url(&quot;https://static.cdninstagram.com/rsrc.php/v3/yi/r/ZFtnMBJnHU_.png&quot;); background-position: 0px -554px; background-size: auto; width: 175px; height: 51px; background-repeat: no-repeat; display: inline-block;"></i></div><br>
+      
+      <div class="form-outline mb-4">
+        
+        <input placeholder="Username" type="text" name="username" style="width:290px;" id="form2Example1" class="form-control" />
+        
+      </div>
+
+      <div class="form-outline mb-4">
+        
+        <input placeholder="Email" type="email" name="email" style="width:290px;" id="form2Example1" class="form-control" />
+        
+      </div>
+    
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        
+      
+        <input placeholder="Password" type="password" name="password1" style="width:290px;"id="form2Example2" class="form-control" />
+      </div>
+
+      <div class="form-outline mb-4">
+        
+      
+        <input placeholder="Confirm Password" type="password" name="password2" style="width:290px;"id="form2Example2" class="form-control" />
+      </div>
+    
+      <!-- 2 column grid layout for inline styling -->  
+      <br>
+    
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-4">Register</button>
+    
+      <!-- Register buttons -->
+      <div class="text-center">
+        <p style="color:white;">Already have an account? <a href="{% url 'login' %}">Signin</a> Here.</p>
+       
+    
+       
+      </div>
+    </form>
+  </center>
+
+  </body>
+  </html>
+  {% endblock%}
+    
+   
